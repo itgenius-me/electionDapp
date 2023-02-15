@@ -29,6 +29,7 @@ exports.logout = (req, res) => {
     httpOnly: true,
     signed: true,
   });
+  
   res.status(200).json({
     msg: 'Logout Success',
   });

@@ -110,7 +110,8 @@ router.post('/regVoter/verifyOTP', verifyVoter, (req, res) => {
 router.get('/fetchStats', async (req, res) => {
   console.log(process.env.STATS_DOC_ID);
   Stats.findById(process.env.STATS_DOC_ID).exec(async (error, stats) => {
-    if (error) {
+      if (error) {
+
       return res.status(400).json(error);
     }
     if (stats) {

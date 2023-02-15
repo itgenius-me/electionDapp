@@ -5,30 +5,37 @@ const setInFile = (_web3, _accounts, _contract) => {
   contract = _contract;
 };
 
+
+// const contractAddress = '0x123...'; // replace with your contract address
+//  contract = new web3.eth.Contract(abi, contractAddress);
+
+
 const startVoting = async () => {
   try {
-    let phase = await contract.methods.phase().call();
-    if (phase != 1) return 'Invalid Phase';
+    let phase = await contract?.methods.phase().call();
+    if (phase !== 1) return 'Invalid Phase when starting vote';
 
     const res = await contract.methods
       .startVoting()
       .send({ from: accounts[0] });
     console.log(res);
 
-    phase = await contract.methods.phase().call();
-    console.log(phase);
+    phase = await contract?.methods.phase().call();
+    console.log(phase, 'phase is here  for starting vote');
 
-    if (phase == 2) return 'Success';
-    else return 'Some Error Occurred :(';
+    if (phase === 2) return 'Success';
+    else return 'Some Error Occurred :( here';
   } catch (err) {
-    return 'Some Error Occurred :(';
+    return (
+      'Some Error Occurred while starting vote :( hhh' + JSON.stringify(err)
+    );
   }
 };
 
 const declareResult = async () => {
   try {
-    let phase = await contract.methods.phase().call();
-    if (phase != 2) return 'Invalid Phase';
+    let phase = await contract?.methods.phase().call();
+    if (phase !== 2) return 'Invalid Phase when declaring results';
 
     let endTime = await contract.methods.votingPeriod().call();
     endTime = endTime * 1000;
@@ -42,26 +49,26 @@ const declareResult = async () => {
       .send({ from: accounts[0] });
     console.log(res);
 
-    phase = await contract.methods.phase().call();
+    phase = await contract?.methods.phase().call();
     console.log(phase);
 
-    if (phase == 3) return 'Success';
-    else return 'Some Error Occurred :(';
+    if (phase === 3) return 'Success';
+    else return 'Some Error Occurred :( weeee';
   } catch (err) {
     console.log(err);
-    return 'Some Error Occurred :(';
+    return 'Some Error Occurred :(' + JSON.stringify(err);
   }
 };
 
 const getPhase = async _contract => {
   try {
     if (!_contract) {
-      console.log('contract is not set');
+      console.log('contract is not set please set it');
       return;
     }
-    let phase = await _contract.methods.phase().call();
+    let phase = await _contract?.methods.phase().call();
     if (parseInt(phase) === 2) {
-      let endTime = await _contract.methods.votingPeriod().call();
+      let endTime = await _contract?.methods.votingPeriod().call();
       if (endTime * 1000 <= new Date().getTime()) {
         phase = 3;
       }
@@ -77,7 +84,7 @@ const getPhase = async _contract => {
 const fetchPoliticalParties = async _contract => {
   try {
     let partiesLen = await _contract.methods.getParties().call();
-    let individualSeats = await _contract.methods.getDistrictCount().call();
+    let individualSeats = await _contract?.methods.getDistrictCount().call();
     let parties = [];
     for (let i = 0; i < parseInt(partiesLen); i++) {
       let res = await _contract.methods.parties(i).call();
@@ -106,15 +113,16 @@ const fetchCandidatesResult = async _pinCode => {
     return candidates;
   } catch (err) {
     console.log(err);
-    return 'Some Error Occured';
+    return 'Some Error Occurred' + JSON.stringify(err);
   }
 };
 
 const createParty = async (_name, _logoLink) => {
-  if (_logoLink == null) _logoLink = 'https://img.icons8.com/color/2x/user.png';
+  if (_logoLink === null)
+    _logoLink = 'https://img.icons8.com/color/2x/user.png';
   try {
     let phase = await contract.methods.phase().call();
-    if (phase != 1) return 'Invalid Phase';
+    if (phase !== 1) return 'Invalid Phase when creating party';
     const res = await contract.methods
       .createPoliticalParty(_name, _logoLink)
       .send({ from: accounts[0] });
@@ -134,7 +142,7 @@ const createCandidate = async (_name, _logoLink, _pinCode, _partyId) => {
   }
   try {
     let phase = await contract.methods.phase().call();
-    if (phase != 1) return 'Invalid Phase';
+    if (phase !== 1) return 'Invalid Phase when creating candidate';
     const res = await contract.methods
       .addCandidate(_name, _logoLink, _partyId, _pinCode)
       .send({ from: accounts[0] });
@@ -144,7 +152,7 @@ const createCandidate = async (_name, _logoLink, _pinCode, _partyId) => {
     // else return 'Some Error Occured :(';
   } catch (err) {
     console.log(err);
-    return 'Some Error Occured :(';
+    return 'Some Error Occurred :( while creating candidate';
   }
 };
 const getCandidates = async _id => {
@@ -157,7 +165,7 @@ const getCandidates = async _id => {
     return candidates;
   } catch (err) {
     console.log(err);
-    return 'Some Error Occured';
+    return 'Some Error Occurred';
   }
 };
 

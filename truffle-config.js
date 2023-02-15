@@ -5,8 +5,7 @@ const mnemonic = process.env.MNEMONIC;
 const url = process.env.PROD_BLOCKCHAIN_URL;
 
 module.exports = {
-  // See <http://truffleframework.com/docs/advanced/configuration>
-  // to customize your Truffle configuration!
+ 
   contracts_build_directory: path.join(__dirname, 'client/src/contracts'),
   networks: {
     develop: {

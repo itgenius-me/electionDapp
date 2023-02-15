@@ -56,9 +56,9 @@ export default function AdminForms(props) {
   const uploadImage = () => {
     const formData = new FormData();
     formData.append('file', imageSelected);
-    formData.append('upload_preset', 'wsxwpnhz');
-    formData.append('cloud_name', 'hardik-election');
-    fetch('https://api.cloudinary.com/v1_1/hardik-election/image/upload', {
+    formData.append('upload_preset', 'pxjwbs4n');
+    formData.append('cloud_name', 'itgenius');
+    fetch('https://api.cloudinary.com/v1_1/itgenius/image/upload', {
       method: 'post',
       body: formData,
     })
@@ -74,9 +74,9 @@ export default function AdminForms(props) {
   const uploadImage2 = () => {
     const formData = new FormData();
     formData.append('file', imageSelected2);
-    formData.append('upload_preset', 'wsxwpnhz');
-    formData.append('cloud_name', 'hardik-election');
-    fetch('https://api.cloudinary.com/v1_1/hardik-election/image/upload', {
+    formData.append('upload_preset', 'pxjwbs4n');
+    formData.append('cloud_name', 'itgenius');
+    fetch('https://api.cloudinary.com/v1_1/itgenius/image/upload', {
       method: 'post',
       body: formData,
     })
@@ -108,7 +108,7 @@ export default function AdminForms(props) {
                 Party Registration
               </h3>
               <p className='mt-1 text-sm text-gray-600 font-semibold'>
-                Enter the Party name alongwith the Electoral symbol
+                Enter the Party name along with the Electoral symbol
               </p>
             </div>
           </div>
@@ -333,7 +333,7 @@ export default function AdminForms(props) {
                     </div>
                   </div>
                 </div>
-                {candidateParty == -1 ? (
+                {candidateParty === -1 ? (
                   <div className='px-4 py-5 bg-white space-y-6 sm:p-6'>
                     <div>
                       <label className='block text-sm font-medium text-gray-700'>

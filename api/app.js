@@ -8,7 +8,7 @@ const { init, registrationListener, voteListener } = require('./eventListener');
 require('dotenv').config();
 
 var app = express();
-
+mongoose.set("strictQuery",true)
 const connectWithRetry = (uris, options = {}, maxAttempts = 5) => {
   connectWithRetry.timeout = connectWithRetry.timeout || 0;
   return mongoose.connect(uris, options, err => {

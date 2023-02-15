@@ -27,8 +27,8 @@ const login = async (email, password) => {
     console.log(res);
     return res.data;
   } catch (err) {
-    console.log(err);
-    return { msg: 'Some Error Occured' };
+    console.log(err , "login error");
+    return { msg: 'Some Error Occurred while logging in' };
   }
 };
 
@@ -39,7 +39,7 @@ const logout = async () => {
     return res.data;
   } catch (err) {
     console.log(err);
-    return { msg: 'Some Error Occured' };
+    return { msg: 'Some Error Occurred while logging out' };
   }
 };
 
@@ -82,11 +82,11 @@ const fetchStats = async () => {
     const res = await axios.get(
       `${process.env.REACT_APP_API_URL}/api/fetchStats`
     );
-    console.log(res);
+    console.log(res , "fetch-stats");
     return res.data;
   } catch (err) {
     console.log(err);
-    return { msg: 'Some Error Occured' };
+    return { msg: 'Some Error Occurred in fetching stats' };
   }
 };
 

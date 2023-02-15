@@ -2,6 +2,7 @@
   "name": "electiondapp",
   "version": "1.0.0",
   "description": "",
+  "type": "",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"

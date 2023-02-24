@@ -140,7 +140,7 @@ export default function AdminForms(props) {
 
                   <div>
                     <label className='block text-sm font-medium text-gray-700'>
-                      Electoral Symbol
+                      Party Image
                     </label>
                     <div className='mt-1 flex items-center'>
                       <span className='inline-block bg-cover h-12 w-12 rounded-full overflow-hidden bg-gray-100'>
@@ -168,7 +168,7 @@ export default function AdminForms(props) {
 
                   <div>
                     <label className='block text-sm font-medium text-gray-700'>
-                      Electoral Symbol
+                      Party Image
                     </label>
                     <div className='mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md'>
                       <div className='space-y-1 text-center'>
@@ -337,7 +337,7 @@ export default function AdminForms(props) {
                   <div className='px-4 py-5 bg-white space-y-6 sm:p-6'>
                     <div>
                       <label className='block text-sm font-medium text-gray-700'>
-                        Electoral Symbol
+                        Candidate Image
                       </label>
                       <div className='mt-1 flex items-center'>
                         <span className='inline-block bg-cover h-12 w-12 rounded-full overflow-hidden bg-gray-100'>
@@ -365,7 +365,7 @@ export default function AdminForms(props) {
 
                     <div>
                       <label className='block text-sm font-medium text-gray-700'>
-                        Electoral Symbol
+                        Candidate Image
                       </label>
                       <div className='mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md'>
                         <div className='space-y-1 text-center'>

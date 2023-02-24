@@ -61,6 +61,7 @@ contract Election is Ownable{
 
     function changePhase(uint8 _phase) private {
         phase = _phase;
+        
     }
     
     function startVoting() external onlyOwner {
@@ -70,10 +71,10 @@ contract Election is Ownable{
     }
 
     function createPoliticalParty(string calldata _name, string calldata _logoLink) external onlyOwner returns(uint) {
-        require(phase == 1, "Registration Phase is Over");
-        parties.push(PoliticalParty(_name, _logoLink, 0));
-        emit PoliticalPartyCreated(_name);
-    }
+    require(phase == 1, "Registration Phase is Over");
+    parties.push(PoliticalParty(_name, _logoLink, 0));
+    emit PoliticalPartyCreated(_name);
+}
     
     function addCandidate(string calldata _name, string calldata _logoLink, int16 _partyId, uint32 _pinCode) external onlyOwner {
         require(phase == 1, "Registration Phase is Over");

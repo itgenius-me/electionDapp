@@ -17,12 +17,12 @@ exports.checkCredentials = async (req, res, next) => {
         next();
       } else {
         return res.status(400).json({
-          msg: 'Invalid email/password combination yyy',
+          msg: 'Invalid email/password combination for  admin',
         });
       }
     } else {
       return res.status(404).json({
-        msg: 'Invalid email/password combination !!!!',
+        msg: 'Invalid email/password combination for admin',
       });
     }
   });

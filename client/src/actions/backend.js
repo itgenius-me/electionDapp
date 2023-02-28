@@ -72,7 +72,7 @@ const verifyOTP = async (phone, code, VoterEthID) => {
     console.log(res);
     return res.data;
   } catch (err) {
-    console.log(err);
+    console.log(err.response);
     return { msg: 'Unable to Verify OTP at the moment. Try again :)' };
   }
 };

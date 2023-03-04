@@ -54,7 +54,7 @@ const sendOTP = async voterID => {
     console.log(res);
     return res.data;
   } catch (err) {
-    console.log(err);
+    console.log(err ,'==========================================================');
     return { msg: 'Unable to Send OTP at the moment. Try again :)' };
   }
 };
